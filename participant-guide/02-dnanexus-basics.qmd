@@ -1,0 +1,35 @@
+---
+title: "DNAnexus in 5 minutes"
+---
+
+## Your training project
+
+The training project contains shared materials and a workspace assigned to you. You will normally see folders similar to:
+
+```text
+01_DATA/
+02_MATERIALS/
+03_TEMPLATES/
+participant-XX/
+```
+
+Use your assigned `participant-XX` folder for your own work.
+
+::: {.callout-warning}
+## Do not modify shared materials
+
+Treat `01_DATA`, `02_MATERIALS` and `03_TEMPLATES` as instructor-managed resources. Create and modify your own files in your participant folder.
+:::
+
+## Project storage and `/mnt/project`
+
+Within JupyterLab, files stored in the current DNAnexus project can be accessed from R under `/mnt/project`.
+
+For example:
+
+```r
+dat <- read.csv("/mnt/project/01_DATA/example_data.csv")
+head(dat)
+```
+
+You do not need to download the project data to your computer to analyse it in R.

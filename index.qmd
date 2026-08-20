@@ -1,0 +1,33 @@
+---
+title: "Getting Started with R and JupyterLab on DNAnexus"
+subtitle: "MCPS training"
+---
+
+Welcome to the **MCPS DNAnexus onboarding tutorial**.
+
+This short, self-paced tutorial will show you how to use DNAnexus for R-based analysis in JupyterLab. It is designed for people who are new to DNAnexus and do **not** require command-line experience.
+
+::: {.callout-important}
+## Data safety
+
+This tutorial uses training data. In real MCPS projects, **individual-level research data must remain within the approved DNAnexus environment unless you have explicit permission to export it**.
+:::
+
+## What you will learn
+
+By the end of the tutorial you will be able to:
+
+- find your DNAnexus project and assigned workspace;
+- start an R-based JupyterLab environment;
+- understand the difference between persistent project storage and temporary compute;
+- open and use a persistent **`[DX]` DNAnexus Notebook**;
+- read data stored in the project from R;
+- save your analysis and its outputs;
+- terminate JupyterLab when you finish; and
+- return later and continue your work.
+
+## The workflow
+
+> **Project → JupyterLab → `[DX]` notebook → R analysis → Save → Terminate**
+
+Work through the tutorial in order, and complete the hands-on exercises in the accompanying `getting-started.ipynb` notebook when instructed.

@@ -1,0 +1,43 @@
+---
+title: "Start JupyterLab"
+---
+
+## Use the workshop route
+
+From the DNAnexus project interface, use:
+
+**Tools → JupyterLab → New JupyterLab**
+
+DNAnexus exposes other ways to launch applications, but this tutorial uses the dedicated JupyterLab route throughout.
+
+## Recommended settings
+
+For the training exercises, use:
+
+| Setting | Recommendation |
+|---|---|
+| Project | Your MCPS training/workshop project |
+| Snapshot | Leave blank |
+| Cluster | Single Node |
+| Instance Type | `mem1_ssd1_v2_x4` |
+| Feature | `PYTHON_R` |
+
+DNAnexus displays an **Estimated Price** before you start the environment. The exact amount depends on the configuration and session duration.
+
+::: {.callout-note}
+## Cost awareness
+
+JupyterLab uses compute resources while the environment is running. Check the estimated price before starting, and terminate the environment when you have finished.
+:::
+
+## Wait for the environment to become ready
+
+The environment normally moves through an initialization/queueing stage before it is ready to open.
+
+Once it is **Ready**, open the JupyterLab environment.
+
+::: {.callout-important}
+## Do not close the browser and assume the compute has stopped
+
+When you finish working, explicitly terminate the JupyterLab environment.
+:::

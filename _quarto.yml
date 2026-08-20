@@ -1,0 +1,30 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Getting Started with DNAnexus"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: participant-guide/01-before-you-begin.qmd
+        text: Before you begin
+      - href: participant-guide/02-dnanexus-basics.qmd
+        text: DNAnexus basics
+      - href: participant-guide/03-start-jupyterlab.qmd
+        text: Start JupyterLab
+    right:
+      - icon: github
+        href: https://github.com/
+        aria-label: GitHub
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-location: right
+    number-sections: false
+    smooth-scroll: true
+    code-copy: true
+    css: assets/styles/mcps.css

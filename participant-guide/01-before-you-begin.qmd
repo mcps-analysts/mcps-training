@@ -1,0 +1,28 @@
+---
+title: "Before you begin"
+---
+
+## What you need
+
+You need:
+
+1. an MCPS DNAnexus account;
+2. access to the DNAnexus training project; and
+3. an assigned participant workspace.
+
+No command-line knowledge is required for this tutorial.
+
+## The most important idea
+
+Think of your DNAnexus project and your JupyterLab session as two different things:
+
+- **DNAnexus project:** persistent storage for approved data, notebooks and saved outputs.
+- **JupyterLab:** temporary computing resources used to run R and perform your analysis.
+
+Your JupyterLab environment can be stopped and recreated. Your saved **`[DX]` notebook** remains in the project.
+
+::: {.callout-tip}
+## A useful rule
+
+**Save your notebook regularly, and terminate JupyterLab when you are finished.**
+:::
