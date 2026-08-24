@@ -1,33 +1,101 @@
 ---
-title: "Getting Started with R and JupyterLab on DNAnexus"
-subtitle: "MCPS training"
+page-layout: full
 ---
 
-Welcome to the **MCPS DNAnexus onboarding tutorial**.
+<div class="mcps-home-hero">
 
-This short, self-paced tutorial will show you how to use DNAnexus for R-based analysis in JupyterLab. It is designed for people who are new to DNAnexus and do **not** require command-line experience.
+<div class="mcps-home-logo">
+<img src="assets/images/mcps-logo-positive.png"
+     alt="Mexico City Prospective Study"
+     class="mcps-logo">
+</div>
 
-::: {.callout-important}
-## Data safety
+<div class="mcps-home-title">
 
-This tutorial uses training data. In real MCPS projects, **individual-level research data must remain within the approved DNAnexus environment unless you have explicit permission to export it**.
+# Getting Started with R and JupyterLab on DNAnexus
+
+<p class="mcps-home-lead">
+A self-paced introduction to the DNAnexus workflow used for R-based analysis in MCPS.
+</p>
+
+</div>
+
+</div>
+
+::: {.callout-note title="Who is this for?"}
+This tutorial is designed for **MCPS researchers, workshop participants, and collaborators who are new to DNAnexus**.
+
+You might be:
+
+- attending an **MCPS workshop** and using a workshop project; or
+- starting work in an **MCPS research project** that you have been given access to.
+
+The tutorial works for both situations.
+
+You do **not** need previous experience with DNAnexus, JupyterLab, cloud computing, or the command line.
 :::
 
 ## What you will learn
 
-By the end of the tutorial you will be able to:
+By the end of this tutorial, you will be able to:
 
-- find your DNAnexus project and assigned workspace;
+- find the DNAnexus project you have been given access to;
+- identify where to keep your own work;
 - start an R-based JupyterLab environment;
-- understand the difference between persistent project storage and temporary compute;
+- understand what is saved permanently and what is temporary;
 - open and use a persistent **`[DX]` DNAnexus Notebook**;
-- read data stored in the project from R;
+- read training data stored in your project directly from R;
 - save your analysis and its outputs;
-- terminate JupyterLab when you finish; and
+- safely terminate your JupyterLab session; and
 - return later and continue your work.
 
 ## The workflow
 
-> **Project → JupyterLab → `[DX]` notebook → R analysis → Save → Terminate**
+The DNAnexus workflow is simple:
 
-Work through the tutorial in order, and complete the hands-on exercises in the accompanying `getting-started.ipynb` notebook when instructed.
+1. **Project** — Open the project you have been given access to.
+2. **Workspace** — Find the folder where you will keep your own work.
+3. **JupyterLab** — Start a temporary computing environment.
+4. **`[DX]` Notebook** — Open your persistent notebook.
+5. **R analysis** — Read data, analyse, and create outputs.
+6. **Save and terminate** — Save your work and stop your computing session.
+
+<div class="mcps-workflow-summary">
+
+**Project → Workspace → JupyterLab → `[DX]` notebook → R analysis → Save → Terminate**
+
+</div>
+
+::: {.callout-warning title="Data safety"}
+This tutorial uses **synthetic training data**.
+
+If you are completing the tutorial from a project containing real MCPS research data, **you do not need to use those data at any point in this tutorial**.
+
+Individual-level MCPS research data must remain within the approved DNAnexus environment.
+
+Only download outputs that have been explicitly identified as safe and appropriate to export.
+:::
+
+## How to use this tutorial
+
+Work through the sections in order.
+
+The tutorial explains **what to do and why**, while a small `getting-started.ipynb` notebook gives you a place to practise the workflow yourself.
+
+The shared files used for these exercises are kept in a folder called:
+
+```text
+mcps-dnanexus-onboarding/
+```
+
+We will show you where to find this folder and your own working area before you start JupyterLab.
+
+::: {.callout-tip title="You do not need to memorise the steps"}
+The **Quick reference** at the end of the tutorial provides a short version of the workflow that you can return to during future workshops or analyses.
+:::
+
+## Ready to begin?
+
+Start the tutorial with **Before you begin**.
+
+[Start the tutorial →](participant-guide/01-before-you-begin.qmd){.btn .btn-primary}

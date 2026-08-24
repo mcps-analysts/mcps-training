@@ -1,0 +1,217 @@
+---
+title: "Quick reference and troubleshooting"
+---
+
+You have completed the core MCPS DNAnexus onboarding tutorial.
+
+This page is designed as a **quick reference**. You do not need to memorise the workflow — return here whenever you need a reminder.
+
+## Quick reference
+
+### Start working
+
+1. Open the **DNAnexus project** you have been given access to.
+2. Select **Tools → JupyterLab**.
+3. Select **+ New JupyterLab**.
+4. Choose the project you are working in.
+5. Use the recommended settings:
+   - **Snapshot:** leave blank unless your workshop or project instructions say otherwise;
+   - **Cluster Configuration:** **Single Node**;
+   - **Instance Type:** **`mem1_ssd1_v2_x4`** unless another instance has been recommended;
+   - **Feature:** **`PYTHON_R`**.
+6. Check the **Estimated Price**.
+7. Select **Start Environment**.
+8. Wait until the environment shows **Ready**.
+9. Select **Open**.
+
+<div class="mcps-workflow-summary">
+
+**Project → JupyterLab → Start environment → Open**
+
+</div>
+
+### Open your work
+
+1. Select the **DNAnexus project browser** on the left side of JupyterLab.
+2. Find **your workspace**.
+3. Open your supplied notebook.
+4. Check that **`[DX]`** appears in the notebook tab.
+5. Check that the notebook is using the correct kernel — **R** for the R-based exercises in this tutorial.
+
+::: {.callout-warning title="Do not confuse the two file browsers"}
+**JupyterLab file browser → temporary JupyterLab files**
+
+**DNAnexus project browser → persistent DNAnexus project files**
+
+For persistent work, make sure you know where your files are being stored.
+:::
+
+### Work with project data
+
+R can access files stored in the current DNAnexus project under:
+
+```text
+/mnt/project/
+```
+
+For example:
+
+```r
+dat <- read.csv(
+  "/mnt/project/mcps-dnanexus-onboarding/data/example_data.csv"
+)
+```
+
+Reading directly from `/mnt/project/` is suitable when a file is read once, as in this tutorial.
+
+For larger or more complex analyses that repeatedly access the same files, it may be more efficient to make temporary copies in the JupyterLab computing environment.
+
+### Save your work
+
+Save your **`[DX]` notebook regularly**.
+
+A saved `[DX]` notebook can preserve:
+
+- R code;
+- text and notes;
+- displayed tables;
+- printed and model output; and
+- displayed figures.
+
+Remember that saving the notebook does **not** preserve the live R session.
+
+### Finish working
+
+1. Save your `[DX]` notebook.
+2. Select **DNAnexus → End Session**.
+3. Confirm if prompted.
+
+Do not rely on closing the browser tab to end the computing environment.
+
+<div class="mcps-workflow-summary">
+
+**Save → DNAnexus → End Session**
+
+</div>
+
+## Four things to remember
+
+::: {.callout-important}
+1. **Files stored in the DNAnexus project are persistent.**
+2. **Saved `[DX]` notebooks are persistent.**
+3. **JupyterLab environments and live R sessions are temporary.**
+4. **Individual-level MCPS research data must remain within DNAnexus.**
+:::
+
+## Troubleshooting
+
+### I cannot find my DNAnexus project
+
+Make sure you are signed in to the correct DNAnexus account and that you have been given access to the project.
+
+You do not need to create the project yourself.
+
+If you still cannot see it, contact the person who arranged your project or workshop access.
+
+### JupyterLab is still `In Queue` or `Initializing`
+
+Wait for the environment to become **Ready**.
+
+Starting a JupyterLab environment can take several minutes.
+
+Do not start another environment simply because the first one is still initializing.
+
+### I clicked the R tile in the Launcher
+
+The separate **R** tile creates a notebook in the temporary JupyterLab environment.
+
+For this tutorial, use the persistent notebook supplied in **your workspace** instead.
+
+Open it using the **DNAnexus project browser** and check that `[DX]` appears in the notebook tab.
+
+### My notebook does not show `[DX]`
+
+Make sure you opened the supplied notebook from your workspace using the **DNAnexus project browser**.
+
+For this tutorial, `[DX]` is your visual check that you are working with the persistent DNAnexus Notebook.
+
+### I cannot find my workspace
+
+For this tutorial:
+
+- **Workshop:** your workspace is the `participant-XX/` folder created for you at the top level of the project.
+- **Research project:** we recommend using your named folder inside `Users/`.
+
+Remember that **workspace** is simply the term used in this tutorial for the folder where you keep your own work.
+
+### R cannot find a file under `/mnt/project/`
+
+First check that the path is correct.
+
+If the file was **added, moved, or reorganised after your JupyterLab environment started**, it may be visible in the DNAnexus project browser but not yet available to R under `/mnt/project/`.
+
+Restarting JupyterLab refreshes the project files available to the computing environment.
+
+To avoid this delay, make sure the files you need are in the project before starting JupyterLab.
+
+### My R objects have disappeared
+
+This is expected after ending JupyterLab and starting a new environment.
+
+Objects such as `dat` live in the temporary R session.
+
+Reopen your `[DX]` notebook and rerun the code needed to recreate them.
+
+### My code, table, or figure is missing from the notebook
+
+Check that:
+
+1. you opened the correct `[DX]` notebook; and
+2. you saved the notebook after creating the output.
+
+The notebook can only preserve the version that was saved.
+
+### I created a CSV or another file in R, but I cannot see it in the DNAnexus project
+
+If you created a file without specifying a persistent DNAnexus destination, it may have been written to the **temporary JupyterLab filesystem**.
+
+Saving your `[DX]` notebook does not automatically move standalone files into the DNAnexus project.
+
+The advanced reference material explains how standalone outputs can be saved back to persistent project storage.
+
+### I am not sure whether I can download a file
+
+Do **not** download it until you have checked.
+
+Individual-level MCPS research data must remain within DNAnexus.
+
+Remember that notebooks and analytical outputs can also contain individual-level or potentially disclosive information.
+
+### I have finished working
+
+Save your `[DX]` notebook and use:
+
+**DNAnexus → End Session**
+
+This stops the temporary computing environment and avoids leaving computing resources running unnecessarily.
+
+## Where to go next
+
+You now know the core workflow for using R and JupyterLab on MCPS DNAnexus.
+
+The same basic workflow applies whether you are:
+
+- attending an MCPS workshop; or
+- working in an approved MCPS research project.
+
+You can return to this page whenever you need a reminder.
+
+::: {.callout-success title="Tutorial complete"}
+You are ready to use the core MCPS DNAnexus workflow:
+
+**open your project → start JupyterLab → open your `[DX]` notebook → work in R → save → end the session.**
+:::
+
+[← Return to Home](../index.qmd){.btn .btn-outline-primary}
+
+[Optional: Advanced topics →](11-advanced-save-standalone-outputs.qmd){.btn .btn-primary}

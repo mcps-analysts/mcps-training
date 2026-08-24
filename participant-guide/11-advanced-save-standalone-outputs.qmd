@@ -1,0 +1,301 @@
+---
+title: "Advanced: save standalone outputs from R"
+---
+
+::: {.callout-note title="Optional"}
+This page is for users who are comfortable with R and want to save **standalone output files** directly from R into their DNAnexus project.
+
+You do **not** need this workflow to complete this core tutorial. For most analyses, your `[DX]` notebook is the main record of your work.
+:::
+
+## Why would you need this?
+
+Earlier in the tutorial, we saw that saving your `[DX]` notebook preserves the notebook and the outputs displayed inside it.
+
+Sometimes you may also want a separate file in your DNAnexus project.
+
+Examples include:
+
+- an approved summary table in CSV format;
+- a figure saved as a PNG or PDF;
+- a model result saved as a separate file; or
+- another analysis output that you want to use in a later workflow.
+
+A file created by R in the temporary JupyterLab environment is **not automatically saved to the DNAnexus project**.
+
+This page shows a simple way for experienced R users to upload an approved standalone file directly from R.
+
+## 1. The basic workflow
+
+The overall process is:
+
+```text
+R creates a file
+      ↓
+Temporary JupyterLab environment
+      ↓
+R helper uploads the file to DNAnexus project
+      ↓
+Persistent DNAnexus project
+```
+
+The upload uses the DNAnexus command-line tool behind the scenes.
+
+You do **not** need to open a terminal or use the command line yourself.
+
+## 2. Set your workspace
+
+Before using the upload helper, tell R where **your own workspace** is in the DNAnexus project.
+
+Start with:
+
+```r
+my_workspace <- "REPLACE_WITH_YOUR_WORKSPACE"
+```
+
+Replace `REPLACE_WITH_YOUR_WORKSPACE` with the path to your own workspace **before you try to upload anything**.
+
+For example, a workshop workspace might have a path such as:
+
+```text
+/participant-XX/
+```
+
+and a research-project workspace might be inside:
+
+```text
+/Users/<your-name>/
+```
+
+Use the actual path to **your own** workspace.
+
+::: {.callout-warning title="Set your own workspace before continuing"}
+Do not copy another participant's or researcher's workspace path.
+
+The helper function below is designed to stop with an error if you leave:
+
+```text
+REPLACE_WITH_YOUR_WORKSPACE
+```
+
+unchanged.
+:::
+
+You can check what you have entered by running:
+
+```r
+my_workspace
+```
+
+Make sure the displayed path is the workspace where you intend to save your files.
+
+## 3. Define the helper function
+
+Add the following function to your R notebook:
+
+```r
+save_to_dnanexus <- function(
+  file,
+  destination = my_workspace
+) {
+
+  if (!file.exists(file)) {
+    stop("File not found: ", file)
+  }
+
+  if (
+    !exists("my_workspace", inherits = TRUE) ||
+    identical(destination, "REPLACE_WITH_YOUR_WORKSPACE") ||
+    !is.character(destination) ||
+    length(destination) != 1 ||
+    !nzchar(destination)
+  ) {
+    stop(
+      "Your DNAnexus workspace has not been set. ",
+      "Set 'my_workspace' to your own workspace before uploading."
+    )
+  }
+
+  result <- system2(
+    "dx",
+    c(
+      "upload",
+      file,
+      "--destination", destination,
+      "--brief"
+    ),
+    stdout = TRUE,
+    stderr = TRUE
+  )
+
+  status <- attr(result, "status")
+
+  if (!is.null(status) && status != 0) {
+    stop(
+      "Upload failed:\n",
+      paste(result, collapse = "\n")
+    )
+  }
+
+  cat(
+    "File successfully saved to DNAnexus:\n",
+    destination, basename(file), "\n"
+  )
+
+  invisible(result)
+}
+```
+
+This function:
+
+1. checks that the file exists;
+2. checks that you have set a workspace rather than leaving the placeholder unchanged;
+3. uploads the file to your workspace in the DNAnexus project; and
+4. reports whether the upload succeeded.
+
+## 4. Save an output file
+
+For example, suppose you have created an approved summary table:
+
+```r
+results <- aggregate(
+  age ~ sex,
+  data = dat,
+  FUN = mean
+)
+```
+
+Save it as a CSV file in the temporary JupyterLab environment:
+
+```r
+write.csv(
+  results,
+  "age_summary.csv",
+  row.names = FALSE
+)
+```
+
+Then upload it to the workspace you defined earlier:
+
+```r
+save_to_dnanexus("age_summary.csv")
+```
+
+You do not need to type the destination again. The function uses `my_workspace`.
+
+::: {.callout-note title="The destination is persistent"}
+The file is first created in the temporary JupyterLab environment.
+
+The `save_to_dnanexus()` function then uploads a copy into your workspace in the DNAnexus project.
+
+Once uploaded, the project copy is persistent.
+:::
+
+## 5. Save a figure
+
+The same approach works for figures.
+
+For example:
+
+```r
+png("age_blood_pressure.png", width = 1200, height = 900)
+
+plot(
+  dat$age,
+  dat$systolic_bp,
+  xlab = "Age (years)",
+  ylab = "Systolic blood pressure",
+  main = "Synthetic training data"
+)
+
+dev.off()
+```
+
+Then upload the figure:
+
+```r
+save_to_dnanexus("age_blood_pressure.png")
+```
+
+The same `my_workspace` destination is used automatically.
+
+## 6. Check the DNAnexus project
+
+After the upload, refresh the **DNAnexus project browser**.
+
+The new file should appear in your workspace.
+
+You can then use it like any other persistent project file.
+
+::: {.callout-tip title="Save only files you actually need"}
+Do not upload every intermediate file generated during an analysis.
+
+Keep your workspace tidy and save only outputs that are useful for your analysis or that you need to use later.
+:::
+
+## 7. Data safety still applies
+
+This helper makes it easy to move files from the temporary JupyterLab environment into persistent DNAnexus project storage.
+
+It does **not** change whether a file is safe to export from DNAnexus.
+
+For real MCPS research projects, this is an important distinction:
+
+```text
+Temporary JupyterLab
+        ↓
+Persistent DNAnexus project
+```
+
+is part of normal project work.
+
+By contrast:
+
+```text
+DNAnexus
+        ↓
+Local computer
+```
+
+is subject to the MCPS data-access rules described earlier in this tutorial.
+
+::: {.callout-warning title="Do not use this to export research data"}
+This function saves files **within the DNAnexus project**.
+
+It does not give permission to download individual-level MCPS research data to your local computer.
+
+Individual-level MCPS research data must remain within the approved DNAnexus environment.
+:::
+
+## 8. When should you use this?
+
+For most analyses, you can simply keep your work in your `[DX]` notebook.
+
+Use this approach when you specifically need a **standalone persistent file** in the DNAnexus project.
+
+A useful rule is:
+
+| Need | Recommended approach |
+|---|---|
+| Keep code and analysis together | Save the `[DX]` notebook |
+| Display a table or figure | Keep it in the notebook |
+| Save a standalone CSV/PNG/PDF for later use | Upload it to the project |
+| Move individual-level MCPS data to your computer | **Do not do this** |
+
+## 9. A final note for workshop participants
+
+The standard MCPS workshops do not require this technique.
+
+The instructors will provide the workshop notebooks and shared data in advance, and most workshop outputs can simply remain in your `[DX]` notebook.
+
+This page is included so that more experienced R users know that it is possible to persist standalone outputs directly from R without using a terminal.
+
+::: {.callout-success title="Advanced workflow complete"}
+You now have an optional R function for saving approved standalone outputs directly into your DNAnexus project.
+
+For day-to-day work, remember the simpler workflow:
+
+**Work in your `[DX]` notebook → save regularly → end your JupyterLab session.**
+:::
+
+[← Return to Quick reference](10-quick-reference-and-troubleshooting.qmd){.btn .btn-outline-primary}

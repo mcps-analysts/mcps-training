@@ -1,4 +1,288 @@
-/* Placeholder for MCPS branding. Add approved colours, typography and logo treatment later. */
-.callout-important { border-left-color: #b42318; }
-.callout-warning { border-left-color: #b54708; }
-.callout-tip { border-left-color: #027a48; }
+/* MCPS visual language for the DNAnexus training site. */
+:root {
+  --mcps-blue-dark: #0047BB;
+  --mcps-blue: #0085CA;
+  --mcps-green: #22983B;
+  --mcps-ink: #263238;
+  --mcps-muted: #5F6B73;
+  --mcps-border: #D9E2EA;
+  --mcps-surface: #F6F9FC;
+  --mcps-caution: #D98200;
+  --mcps-danger: #C62828;
+}
+
+/* Overall typography and reading comfort */
+body {
+  color: var(--mcps-ink);
+  background: #FFFFFF;
+}
+
+/*
+ * Keep Quarto's page-column system intact, but give the
+ * reading area a comfortable maximum width and centre it.
+ */
+#quarto-content {
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-columns {
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main.content {
+  max-width: 840px;
+}
+p, li {
+  line-height: 1.65;
+}
+
+/* Site navigation */
+.navbar {
+  border-bottom: 3px solid var(--mcps-blue-dark);
+  box-shadow: 0 1px 0 rgba(0, 71, 187, 0.08);
+}
+
+.navbar-brand {
+  color: var(--mcps-blue-dark) !important;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.navbar-nav .nav-link {
+  color: var(--mcps-ink) !important;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus,
+.navbar-nav .nav-link.active {
+  color: var(--mcps-blue-dark) !important;
+}
+
+.navbar-nav .nav-link.active {
+  font-weight: 700;
+}
+
+/* Links */
+a,
+.aa-DetachedSearchButton {
+  color: var(--mcps-blue-dark);
+}
+
+a:hover,
+a:focus {
+  color: var(--mcps-blue);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--mcps-blue-dark);
+}
+
+h1.title,
+.quarto-title-block .title {
+  color: var(--mcps-blue-dark);
+  font-weight: 750;
+}
+
+h2 {
+  border-bottom: 1px solid var(--mcps-border);
+  padding-bottom: 0.25rem;
+}
+
+/* Right-hand page navigation */
+#TOC a {
+  color: var(--mcps-ink);
+}
+
+#TOC .active,
+#TOC a:hover {
+  color: var(--mcps-blue-dark);
+}
+
+/* Tables */
+table {
+  width: 100%;
+}
+
+thead th {
+  color: var(--mcps-blue-dark);
+  border-bottom: 2px solid var(--mcps-blue-dark) !important;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--mcps-surface);
+}
+
+/* Code */
+code {
+  color: var(--mcps-blue-dark);
+}
+
+pre code {
+  color: inherit;
+}
+
+/* Quarto callouts: semantic colour language */
+.callout {
+  border-left-width: 4px;
+  border-radius: 0.2rem;
+}
+
+.callout-note {
+  border-left-color: var(--mcps-blue);
+}
+
+.callout-tip {
+  border-left-color: var(--mcps-green);
+}
+
+.callout-important {
+  border-left-color: var(--mcps-blue-dark);
+}
+
+.callout-warning {
+  border-left-color: var(--mcps-danger);
+}
+
+.callout-caution {
+  border-left-color: var(--mcps-caution);
+}
+
+.callout .callout-title-container {
+  font-weight: 700;
+}
+
+/* Make the data-safety callout visually prominent without dominating the page. */
+.callout-caution {
+  background: #FFF9F0;
+}
+
+/* Reserve warning callouts for critical / stop messages. */
+.callout-warning {
+  background: #FFF1F2;
+}
+
+/* Homepage / brand block. Add .mcps-brand to an image or wrapper in index.qmd. */
+.mcps-brand {
+  max-width: 560px;
+  margin: 0 auto 1.75rem auto;
+}
+
+.mcps-brand img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.mcps-accent-line {
+  border: 0;
+  border-top: 3px solid var(--mcps-blue-dark);
+  margin: 1.5rem 0 2rem 0;
+}
+
+/* Footer */
+.nav-footer {
+  border-top: 2px solid var(--mcps-blue-dark);
+}
+
+/* Buttons / action links */
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--mcps-blue-dark);
+  border-color: var(--mcps-blue-dark);
+}
+
+/* Reduce visual noise on small screens */
+@media (max-width: 991.98px) {
+  main.content {
+    max-width: none;
+  }
+}
+
+/* ---------------------------------------------------------
+   Homepage
+   --------------------------------------------------------- */
+
+.mcps-home-hero {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 3rem;
+  align-items: center;
+  margin: 1rem 0 3rem 0;
+  padding: 2rem 0 2.5rem 0;
+  border-bottom: 3px solid var(--mcps-blue);
+}
+
+.mcps-home-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mcps-logo {
+  display: block;
+  width: 100%;
+  max-width: 210px;
+  height: auto;
+}
+
+.mcps-home-title h1 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.mcps-home-lead {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #4a5560;
+  max-width: 760px;
+}
+/* Compact summary of the core DNAnexus workflow */
+.mcps-workflow-summary {
+  margin: 1.5rem 0 2rem 0;
+  padding: 1rem 1.25rem;
+  background: #F2F8FC;
+  border-left: 4px solid var(--mcps-blue-light);
+  border-radius: 0.25rem;
+  color: var(--mcps-blue-dark);
+  font-size: 1.05rem;
+  text-align: center;
+}
+
+.mcps-workflow-summary p {
+  margin: 0;
+}
+
+/* Mobile layout */
+
+@media (max-width: 900px) {
+  .mcps-home-hero {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .mcps-home-logo {
+    justify-content: center;
+  }
+
+  .mcps-home-lead {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .mcps-workflow {
+    flex-direction: column;
+  }
+
+  .mcps-workflow-arrow {
+    justify-content: center;
+    transform: rotate(90deg);
+  }
+}

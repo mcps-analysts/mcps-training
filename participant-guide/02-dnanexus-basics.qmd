@@ -1,35 +1,248 @@
 ---
-title: "DNAnexus in 5 minutes"
+title: "DNAnexus basics"
 ---
 
-## Your training project
+Before starting JupyterLab, there is one important idea to understand:
 
-The training project contains shared materials and a workspace assigned to you. You will normally see folders similar to:
+> **Your DNAnexus project keeps your files. JupyterLab provides the temporary computer you use to work with them.**
 
-```text
-01_DATA/
-02_MATERIALS/
-03_TEMPLATES/
-participant-XX/
-```
+Once this distinction is clear, the rest of the workflow becomes much easier to understand.
 
-Use your assigned `participant-XX` folder for your own work.
+## Your DNAnexus project
 
-::: {.callout-warning}
-## Do not modify shared materials
+A **project** is the area in DNAnexus that you have been given access to.
 
-Treat `01_DATA`, `02_MATERIALS` and `03_TEMPLATES` as instructor-managed resources. Create and modify your own files in your participant folder.
+The project contains the files you need for your work. Depending on why you are using DNAnexus, these might include:
+
+- your workspace;
+- shared training materials;
+- notebooks;
+- approved research data; and
+- saved analysis outputs.
+
+Files stored in the project are **persistent**. This means they remain there when you finish your work and terminate JupyterLab.
+
+::: {.callout-note title="Project = persistent"}
+Think of your DNAnexus project as the place where your files are kept.
+
+You can leave DNAnexus, come back later, and the files stored in the project will still be there.
 :::
 
-## Project storage and `/mnt/project`
+## Your workspace
 
-Within JupyterLab, files stored in the current DNAnexus project can be accessed from R under `/mnt/project`.
+On the previous page, we introduced the term **your workspace**.
+
+For this tutorial, this simply means the folder in the project where you keep your own work.
+
+Your supplied training notebook will be located there:
+
+```text
+your workspace/
+└── getting-started.ipynb
+```
+
+Remember that **workspace** is just a term we use in this tutorial to keep the instructions simple. It is an ordinary folder in the DNAnexus project.
+
+## JupyterLab
+
+**JupyterLab** is where you run R and perform your analysis.
+
+When you start JupyterLab, DNAnexus gives you a temporary computer with:
+
+- processing power;
+- memory; and
+- software such as R.
+
+You do not need to install R on your own computer to complete the tutorial.
+
+You use JupyterLab to:
+
+- open your notebook;
+- run R code;
+- read data from your DNAnexus project;
+- produce tables and figures; and
+- inspect your results.
+
+When you are finished, you **terminate** the JupyterLab environment.
+
+::: {.callout-tip title="A useful way to think about it"}
+Imagine that your **DNAnexus project is a filing cabinet** and **JupyterLab is a computer next to it**.
+
+Your files remain in the filing cabinet when you switch the computer off.
+
+The next time you start JupyterLab, you get a new temporary computer that can access the same project files.
+:::
+
+## What is saved and what is temporary?
+
+This distinction is important:
+
+| Saved in your DNAnexus project | Temporary in JupyterLab |
+|---|---|
+| Your `[DX]` notebook | The running R session |
+| Files in your workspace | Objects currently held in R memory |
+| Shared onboarding files | The active computing environment |
+| Approved project data | Temporary files that you have not saved back to the project |
+
+For example, later in this tutorial you will read a synthetic data file into R:
+
+```r
+dat <- read.csv(
+  "/mnt/project/mcps-dnanexus-onboarding/data/example_data.csv"
+)
+```
+
+There are two different things here:
+
+1. `example_data.csv` is a **file stored persistently in the DNAnexus project**.
+2. `dat` is an **R object held temporarily in the current R session**.
+
+If you terminate JupyterLab, the original `example_data.csv` file remains in the project.
+
+The R object `dat` does not remain in memory. The next time you start JupyterLab, you can simply run the code again to recreate it.
+
+::: {.callout-note title="This is good practice in R"}
+Your notebook contains the code needed to recreate your analysis.
+
+Rather than relying on objects remaining in memory, you should be able to rerun your notebook to recreate the objects you need.
+:::
+
+## Your `[DX]` notebook
+
+For this tutorial, you will use a **DNAnexus Notebook**.
+
+You can recognize one because its name is shown with **`[DX]`** when it is open in JupyterLab:
+
+```text
+[DX] getting-started.ipynb
+```
+
+A `[DX]` notebook is stored persistently in your DNAnexus project.
+
+When you save it, the notebook can preserve:
+
+- your R code;
+- text and notes;
+- tables;
+- model summaries; and
+- figures displayed in the notebook.
+
+We have designed the tutorial so that the `[DX]` notebook is the main place where you keep a record of your analysis.
+
+::: {.callout-warning title="Look for `[DX]`"}
+For this tutorial, always open the supplied `getting-started.ipynb` notebook from **your workspace**.
+
+When it opens, check that **`[DX]` appears in the notebook tab**.
+
+This confirms that you are working with the persistent DNAnexus Notebook supplied for the tutorial.
+:::
+
+## How R sees your project files
+
+When R is running inside JupyterLab, files stored in your DNAnexus project are available under:
+
+```text
+/mnt/project/
+```
+
+You do not need to understand the technical details of this path.
+
+For this tutorial, just remember:
+
+> **`/mnt/project/` means "files in my current DNAnexus project".**
 
 For example:
 
-```r
-dat <- read.csv("/mnt/project/01_DATA/example_data.csv")
-head(dat)
+```text
+/mnt/project/mcps-dnanexus-onboarding/data/example_data.csv
 ```
 
-You do not need to download the project data to your computer to analyse it in R.
+means:
+
+```text
+my DNAnexus project
+└── mcps-dnanexus-onboarding/
+    └── data/
+        └── example_data.csv
+```
+
+Later, the required paths will already be provided in your notebook. You will not need to type them from memory.
+
+## Putting everything together
+
+The relationship between the main pieces is:
+
+```text
+DNAnexus project
+(persistent)
+│
+├── your workspace/
+│   └── getting-started.ipynb  ← persistent [DX] notebook
+│
+└── mcps-dnanexus-onboarding/
+    └── data/
+        └── example_data.csv   ← persistent training data
+
+                 │
+                 │ accessed from
+                 ▼
+
+             JupyterLab
+             (temporary)
+                 │
+                 ▼
+                 R
+                 │
+                 ├── dat
+                 ├── models
+                 └── other objects
+                     held temporarily in memory
+```
+
+The key idea is:
+
+<div class="mcps-workflow-summary">
+
+**Project files persist → JupyterLab is temporary → `[DX]` notebooks save your analysis**
+
+</div>
+
+## Computing resources and cost
+
+Starting JupyterLab uses computing resources provided through DNAnexus.
+
+Before starting an environment, DNAnexus will show you:
+
+- the **Instance Type**, which determines the computing resources available;
+- the **Duration** of the environment; and
+- an **Estimated Price**.
+
+You will choose these settings on the next page.
+
+::: {.callout-caution title="Terminate JupyterLab when you finish"}
+JupyterLab uses computing resources while the environment is running.
+
+When you finish your work, **terminate the JupyterLab environment**.
+
+Simply closing the browser tab does not necessarily stop the computing environment.
+:::
+
+## Ready to start JupyterLab?
+
+You now know the four concepts you need:
+
+**Project**
+The area in DNAnexus where your files are stored.
+
+**Workspace**
+The folder where you keep your own work during this tutorial.
+
+**JupyterLab**
+The temporary computer you use to run R.
+
+**`[DX]` notebook**
+The persistent notebook where you keep your analysis.
+
+Next, you will start your first JupyterLab environment.
+
+[Next: Start JupyterLab →](03-start-jupyterlab.qmd){.btn .btn-primary}

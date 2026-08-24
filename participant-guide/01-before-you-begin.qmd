@@ -2,27 +2,173 @@
 title: "Before you begin"
 ---
 
+Welcome to **Getting Started with DNAnexus: R and JupyterLab**.
+
+This short, self-paced tutorial will introduce you to the DNAnexus workflow used for MCPS research and training.
+
+By the end of the tutorial, you will have started an R environment in DNAnexus, worked with synthetic training data, saved your analysis, ended your computing session, and returned later to confirm that your work was preserved.
+
+::: {.callout-note title="How long will this take?"}
+Allow approximately **20–25 minutes** to complete the tutorial.
+
+We recommend completing the tutorial in one sitting so that you can practise the complete workflow from starting JupyterLab to safely ending your session.
+:::
+
 ## What you need
 
-You need:
+Before starting, make sure that:
 
-1. an MCPS DNAnexus account;
-2. access to the DNAnexus training project; and
-3. an assigned participant workspace.
+1. you have a working **DNAnexus account**; and
+2. you have been given access to an **MCPS DNAnexus project**.
 
-No command-line knowledge is required for this tutorial.
+You do **not** need to create a DNAnexus project yourself.
 
-## The most important idea
+You will normally have **Contributor** access to the project. This gives you the access needed to complete the tutorial and run analyses in JupyterLab.
 
-Think of your DNAnexus project and your JupyterLab session as two different things:
+::: {.callout-tip title="No command line experience required"}
+You will complete the core workflow using the **DNAnexus graphical interface, JupyterLab, and R**.
 
-- **DNAnexus project:** persistent storage for approved data, notebooks and saved outputs.
-- **JupyterLab:** temporary computing resources used to run R and perform your analysis.
-
-Your JupyterLab environment can be stopped and recreated. Your saved **`[DX]` notebook** remains in the project.
-
-::: {.callout-tip}
-## A useful rule
-
-**Save your notebook regularly, and terminate JupyterLab when you are finished.**
+You do not need to use a terminal or learn the DNAnexus command-line interface.
 :::
+
+## Which situation applies to you?
+
+You may be completing this tutorial in one of two situations.
+
+### I am attending an MCPS workshop
+
+You have been given access to a **workshop project**.
+
+The instructors will have created a folder for you at the top level of the project. It may look something like:
+
+```text
+participant-xx/
+```
+
+Use the participant folder assigned to you for your own notebooks and other work.
+
+### I am working on an MCPS research project
+
+You have been given access to a project containing MCPS research data.
+
+MCPS research projects normally contain folders called:
+
+```text
+Data/
+Users/
+```
+
+Inside `Users/`, there will usually be a folder bearing your name.
+
+For example:
+
+```text
+Users/
+├── Researcher A/
+├── Researcher B/
+└── Researcher C/
+```
+
+We recommend using your named folder inside `Users/` for your own notebooks and other work.
+
+How you organise your own analysis files within this area is ultimately up to you.
+
+## What do we mean by "your workspace"?
+
+To keep the instructions simple, this tutorial uses the term **your workspace**.
+
+::: {.callout-note title="Your workspace"}
+In this tutorial, **your workspace** simply means the folder where you will keep your own notebook and other work.
+
+It is not a special type of DNAnexus folder.
+
+- **Workshop:** your workspace is the `participant-XX/` folder assigned to you.
+- **Research project:** we recommend using your named folder inside `Users/` as your workspace.
+:::
+
+From this point onwards, the tutorial will simply refer to **your workspace**. The DNAnexus and JupyterLab steps are the same in both situations.
+
+## The onboarding folder
+
+Your project should also contain a shared folder called:
+
+```text
+mcps-dnanexus-onboarding/
+```
+
+This folder contains the files used for this tutorial.
+
+Its contents will look broadly like:
+
+```text
+mcps-dnanexus-onboarding/
+├── data/
+│   └── example_data.csv
+└── materials/
+```
+
+The `data/` folder contains **synthetic training data**.
+
+The `materials/` folder can contain other shared resources used for the tutorial.
+
+::: {.callout-important title="Two different places — two different purposes"}
+**Your workspace** is where you keep **your own work**.
+
+`mcps-dnanexus-onboarding/` contains **shared training resources**.
+
+Do not save your own notebooks or outputs inside `mcps-dnanexus-onboarding/`.
+:::
+
+## A note about data safety
+
+If you are completing this tutorial from a real MCPS research project, you may also be able to see folders containing real research data.
+
+**You do not need to use or open those data to complete this tutorial.**
+
+All exercises use the synthetic data supplied in:
+
+```text
+mcps-dnanexus-onboarding/data/
+```
+
+::: {.callout-warning title="Individual-level research data must remain in DNAnexus"}
+**Never download individual-level MCPS research data to your local computer or another device.**
+
+Individual-level MCPS research data must remain within the approved DNAnexus environment.
+
+Later in the tutorial, we will distinguish between research data and analytical outputs that may be appropriate to download.
+:::
+
+## How this tutorial works
+
+You will use two things side by side:
+
+1. **this tutorial**, which explains what to do and why; and
+2. a small **`getting-started.ipynb` DNAnexus Notebook**, where you will practise the workflow yourself.
+
+Your copy of `getting-started.ipynb` will be provided in **your workspace**.
+
+You do not need to memorise every step. A quick-reference page is provided at the end of the tutorial.
+
+## Before you continue
+
+Make sure that you can identify these two locations in your project:
+
+| Location | What it is for |
+|---|---|
+| **Your workspace** | Your notebook and your own work |
+| `mcps-dnanexus-onboarding/` | Shared synthetic data and training resources |
+
+::: {.callout-tip title="Once you know these two locations, the two pathways merge"}
+It does not matter whether you are using a workshop project or a research project.
+
+From the next page onwards, the core DNAnexus workflow is the same.
+:::
+
+## Ready?
+
+Next, we will look at the one DNAnexus concept that makes the rest of the workflow much easier to understand:
+
+**your DNAnexus project is persistent, while your JupyterLab computing environment is temporary.**
+
+[Next: DNAnexus basics →](02-dnanexus-basics.qmd){.btn .btn-primary}

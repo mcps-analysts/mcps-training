@@ -1,0 +1,172 @@
+---
+title: "Data safety and downloading outputs"
+---
+
+You now know how to work with data, notebooks, and R inside DNAnexus.
+
+Before using the same workflow with real MCPS data, there is one rule that must be completely clear:
+
+::: {.callout-warning title="Never download individual-level MCPS research data"}
+**Individual-level MCPS research data must remain within the approved DNAnexus environment.**
+
+Do not download individual-level MCPS data to your laptop, desktop computer, personal storage, or another device.
+:::
+
+## 1. Training data and real MCPS data are different
+
+The exercises in this tutorial use:
+
+```text
+mcps-dnanexus-onboarding/data/example_data.csv
+```
+
+This is a **synthetic training dataset** created specifically for the tutorial.
+
+It does not contain information from MCPS participants.
+
+If you are completing the tutorial from a real MCPS research project, the project may also contain real research data, usually under:
+
+```text
+Data/
+```
+
+You do **not** need to open, copy, move, or download those data to complete this tutorial.
+
+## 2. Keep individual-level data inside DNAnexus
+
+When you begin working with real MCPS data, carry out your individual-level analyses within the approved DNAnexus environment.
+
+For example:
+
+```text
+MCPS project data
+       ↓
+   JupyterLab
+       ↓
+       R
+       ↓
+individual-level analysis
+```
+
+The individual-level data remain within DNAnexus throughout this workflow.
+
+::: {.callout-important title="Technical ability is not the same as permission"}
+The DNAnexus interface may show options such as **Download** for some files.
+
+The presence of a Download button does **not** mean that individual-level MCPS research data may be downloaded.
+
+Always follow the MCPS data-access requirements.
+:::
+
+## 3. What about analysis outputs?
+
+An analysis can produce many different types of output, including:
+
+- tables;
+- model estimates;
+- summary statistics;
+- figures;
+- reports; and
+- standalone files created by R.
+
+Some outputs may be suitable to take outside DNAnexus, while others may still contain individual-level or potentially disclosive information.
+
+The important question is therefore not simply:
+
+> "Is this an output?"
+
+but:
+
+> **"Is this output safe and appropriate to export?"**
+
+::: {.callout-caution title="Check before downloading"}
+Only download analytical outputs that have been identified as safe and appropriate to export.
+
+If you are unsure whether an output can leave DNAnexus, **do not download it until you have checked**.
+:::
+
+## 4. Your `[DX]` notebook may contain data too
+
+A `[DX]` notebook can preserve:
+
+- printed data;
+- tables;
+- model output;
+- figures; and
+- other results displayed inside notebook cells.
+
+This is useful for keeping a persistent analysis record, but it also means that a notebook may contain information derived from individual-level research data.
+
+Treat notebooks used with real MCPS data as part of the controlled research environment.
+
+::: {.callout-warning title="Do not download research notebooks by default"}
+Do not assume that a notebook is safe to download simply because it is an `.ipynb` file.
+
+A notebook can contain displayed individual-level data or other potentially disclosive outputs.
+:::
+
+## 5. Be careful when displaying individual-level data
+
+Functions such as:
+
+```r
+head(dat)
+```
+
+are convenient in this synthetic tutorial.
+
+With real research data, however, displayed rows can become part of the saved notebook output.
+
+Before displaying individual-level data, consider whether you actually need to show those rows in the notebook.
+
+For real analyses, prefer outputs that are appropriate for the analytical task and avoid displaying unnecessary individual-level information.
+
+## 6. Downloading an approved output
+
+When an output has been confirmed as safe and appropriate to export, DNAnexus provides ways to download project files through its graphical interface.
+
+The exact method you use will depend on where the approved output has been saved.
+
+For this introductory tutorial, you do not need to download any file.
+
+Later reference material will also show how more experienced R users can save standalone outputs from the temporary JupyterLab environment back into the persistent DNAnexus project.
+
+## 7. A simple rule to remember
+
+When working with real MCPS research data:
+
+```text
+Individual-level research data
+            ↓
+       KEEP IN DNAnexus
+
+Analytical output
+            ↓
+      Is it safe and
+    appropriate to export?
+        /           \
+      NO             YES
+      ↓               ↓
+Keep in DNAnexus   Export only
+                   as permitted
+```
+
+If there is any uncertainty, keep the file inside DNAnexus and check before exporting it.
+
+## Checkpoint
+
+Before moving on, make sure you understand that:
+
+- the data used in this tutorial are synthetic;
+- individual-level MCPS research data must remain in DNAnexus;
+- seeing a **Download** option does not mean a file is permitted to leave DNAnexus;
+- notebooks themselves can contain individual-level or disclosive information; and
+- analytical outputs should only be downloaded when they are safe and appropriate to export.
+
+::: {.callout-success title="Core workflow complete"}
+You now know how to start JupyterLab, work in a persistent `[DX]` notebook, access project data, save your work, end and restart a session, and work safely within the DNAnexus environment.
+
+The final page provides a **quick reference and troubleshooting guide** that you can return to whenever you need it.
+:::
+
+[Next: 10 Quick Reference →](10-quick-reference-and-troubleshooting.qmd){.btn .btn-primary}

@@ -1,0 +1,206 @@
+---
+title: "Return and continue your work"
+---
+
+You have ended your previous JupyterLab session.
+
+Now you will start a **new** computing environment and confirm what was preserved.
+
+This is the final part of the persistence test.
+
+## 1. Start a new JupyterLab environment
+
+Return to DNAnexus and start a new JupyterLab environment using the same project as before.
+
+Use the same settings from **Start JupyterLab**:
+
+- **Snapshot:** leave blank;
+- **Cluster Configuration:** Single Node;
+- **Instance Type:** `mem1_ssd1_v2_x4`; and
+- **Feature:** `PYTHON_R`.
+
+Wait until the environment shows **Ready**, then select **Open**.
+
+::: {.callout-note title="This is a new temporary computer"}
+The JupyterLab environment you used previously has ended.
+
+The environment you are starting now is a **new temporary computing environment** connected to the same persistent DNAnexus project.
+:::
+
+## 2. Reopen your `[DX]` notebook
+
+Use the **DNAnexus project browser** to return to your workspace.
+
+Open:
+
+```text
+getting-started.ipynb
+```
+
+Check that the notebook tab again shows:
+
+```text
+[DX] getting-started.ipynb
+```
+
+## 3. Check what survived
+
+Before running any code, scroll through the notebook.
+
+You should still be able to see:
+
+- the R code you ran;
+- the first rows of the synthetic dataset;
+- the output from `dim()` and `summary()`;
+- the summary table; and
+- the figure.
+
+These were saved as part of your persistent `[DX]` notebook.
+
+::: {.callout-success title="Your notebook persisted"}
+The previous JupyterLab computing environment has ended, but your saved notebook and its displayed outputs remain in the DNAnexus project.
+
+This is why `[DX]` notebooks are useful for keeping a persistent record of an analysis.
+:::
+
+## 4. Check the new R session
+
+Now we will test whether the R object `dat` also survived.
+
+**Do not rerun any of the earlier notebook cells yet.**
+
+Find the section:
+
+**7. After restarting JupyterLab**
+
+Run:
+
+```r
+exists("dat")
+```
+
+You should see:
+
+```text
+[1] FALSE
+```
+
+This means that `dat` does not exist in the new R session.
+
+Nothing has gone wrong.
+
+The previous `dat` object existed only in the memory of the R session that ended with your previous JupyterLab environment.
+
+## 5. Recreate `dat`
+
+Return to the earlier section:
+
+**2. Read the training data**
+
+Rerun:
+
+```r
+dat <- read.csv(
+  "/mnt/project/mcps-dnanexus-onboarding/data/example_data.csv"
+)
+
+head(dat)
+```
+
+You have now recreated `dat` from the persistent CSV file stored in the DNAnexus project.
+
+To confirm this, run:
+
+```r
+exists("dat")
+```
+
+again.
+
+This time you should see:
+
+```text
+[1] TRUE
+```
+
+::: {.callout-tip title="This is reproducibility in action"}
+You did not need the old R session to continue your work.
+
+The project still contained the original data, and your notebook still contained the code needed to recreate the R object.
+
+Running the code again restored the object you needed.
+:::
+
+## 6. The key idea
+
+You have now directly tested the difference between persistent storage and temporary computing.
+
+| Item | After ending and restarting JupyterLab |
+|---|---|
+| DNAnexus project | **Still there** |
+| `example_data.csv` | **Still there** |
+| Saved `[DX]` notebook | **Still there** |
+| Saved code | **Still there** |
+| Saved displayed tables and figures | **Still there** |
+| Previous JupyterLab environment | **Ended** |
+| Previous R session | **Ended** |
+| `dat` in R memory | **Gone until recreated** |
+
+The workflow can be summarized as:
+
+<div class="mcps-workflow-summary">
+
+**Persistent project + saved code → new JupyterLab session → rerun code → continue analysis**
+
+</div>
+
+## 7. Continue rather than start again
+
+In real analyses, you will often work across several JupyterLab sessions.
+
+You do not need to rebuild your analysis manually each time.
+
+Instead:
+
+1. keep your code in a persistent `[DX]` notebook;
+2. save the notebook regularly;
+3. end JupyterLab when you finish working;
+4. start a new environment when you return;
+5. reopen the same `[DX]` notebook; and
+6. rerun the code needed to recreate your R objects.
+
+::: {.callout-note title="Your notebook is the recipe"}
+A useful way to think about this is:
+
+**The project stores the ingredients.**
+
+**The notebook stores the recipe.**
+
+**The temporary R session is where you prepare the analysis.**
+
+When you return later, you can use the same ingredients and recipe to recreate what you need.
+:::
+
+## 8. Save and end this test session
+
+You have completed the persistence exercise.
+
+Save `getting-started.ipynb` once more.
+
+If you do not need the JupyterLab environment for anything else, end it using:
+
+**DNAnexus → End Session**
+
+## Checkpoint
+
+You should now be able to explain the following distinction:
+
+> **Files and saved `[DX]` notebooks in the DNAnexus project are persistent. JupyterLab environments and live R objects are temporary.**
+
+::: {.callout-success title="Persistence test complete"}
+You have successfully ended a JupyterLab session, returned in a new environment, reopened your saved analysis, and recreated a temporary R object from persistent project data.
+
+You now understand the core DNAnexus workflow used throughout the MCPS training materials.
+:::
+
+[Next: 09 Data Safety →](09-data-safety-and-downloading.qmd){.btn .btn-primary}

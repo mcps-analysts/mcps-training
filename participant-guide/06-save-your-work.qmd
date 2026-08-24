@@ -1,0 +1,160 @@
+---
+title: "Save your work"
+---
+
+You have now run R code, created a summary table, and produced a figure inside your **`[DX]` notebook**.
+
+Before ending your JupyterLab session, it is important to understand what is saved with the notebook and what remains temporary.
+
+## 1. Save your `[DX]` notebook
+
+Use the **Save** button in JupyterLab to save `getting-started.ipynb`.
+
+We recommend saving regularly while you work.
+
+Because this is a `[DX]` notebook, saving it stores the notebook persistently in your DNAnexus project.
+
+::: {.callout-tip title="Save regularly"}
+Do not wait until the end of an analysis to save your notebook.
+
+Saving regularly gives you an up-to-date persistent record of your work in the DNAnexus project.
+:::
+
+## 2. What is saved with the notebook?
+
+A saved `[DX]` notebook can preserve the content displayed inside it, including:
+
+- your R code;
+- text and notes;
+- printed R output;
+- tables;
+- model summaries; and
+- figures displayed below code cells.
+
+For example, your `getting-started.ipynb` notebook should now contain both the code used to create the synthetic-data figure and the figure itself.
+
+This makes the notebook a useful record of your analysis.
+
+## 3. What is not saved by saving the notebook?
+
+Saving the notebook does **not** preserve the live R session.
+
+For example, earlier you created:
+
+```r
+dat <- read.csv(
+  "/mnt/project/mcps-dnanexus-onboarding/data/example_data.csv"
+)
+```
+
+The code that creates `dat` is saved in the notebook.
+
+The object `dat` itself is held in the memory of the current R session and is temporary.
+
+When this JupyterLab environment ends, that R session ends too.
+
+The next time you start JupyterLab, you can recreate `dat` simply by running the relevant code again.
+
+::: {.callout-note title="Notebook saved; R session temporary"}
+A useful distinction is:
+
+**Your `[DX]` notebook records how to create your analysis.**
+
+**The R session contains the objects that currently exist while the analysis is running.**
+
+Saving the notebook preserves the first, not the second.
+:::
+
+## 4. What about standalone files?
+
+R can also create files outside the notebook.
+
+For example:
+
+```r
+write.csv(
+  dat,
+  "example_output.csv",
+  row.names = FALSE
+)
+```
+
+If you run this code without specifying a persistent DNAnexus destination, the file is created in the **temporary JupyterLab computing environment**.
+
+Saving the `[DX]` notebook does **not** automatically move that standalone file into your DNAnexus project.
+
+The distinction is:
+
+```text
+[DX] notebook
+│
+├── R code                 → saved with notebook
+├── displayed table        → saved with notebook
+├── printed/model output   → saved with notebook
+└── displayed figure       → saved with notebook
+
+Temporary JupyterLab files
+│
+└── example_output.csv     → not automatically saved to project
+```
+
+::: {.callout-important title="Keep important files in the DNAnexus project"}
+If you create a standalone file that you need to keep, it must be saved or moved into the persistent DNAnexus project.
+
+For most exercises in this tutorial, you do not need to create standalone output files. Your `[DX]` notebook is the main record of your work.
+
+We cover options for saving standalone outputs later in the tutorial.
+:::
+
+## 5. The notebook is your main analysis record
+
+For many interactive analyses, keeping your:
+
+- code;
+- explanations;
+- tables;
+- model results; and
+- figures
+
+together in a `[DX]` notebook provides a simple and reproducible record of what you did.
+
+You can still create standalone files when you need them, but you do not need to save every result as a separate file.
+
+::: {.callout-tip title="Code is what makes your analysis reproducible"}
+The most important thing to preserve is the **code needed to recreate your results**.
+
+If your notebook contains the code needed to read the project data and reproduce your analysis, you can recreate temporary R objects in a new session.
+:::
+
+## 6. Save before you continue
+
+Return to `getting-started.ipynb` and save it once more.
+
+Before moving on, make sure you can still see:
+
+- the R code you ran;
+- the first rows of the synthetic dataset;
+- the output from `dim()` and `summary()`;
+- the summary table; and
+- the figure.
+
+On the next page, you will deliberately **terminate your JupyterLab environment**.
+
+This will allow you to test that the notebook really is persistent.
+
+## Checkpoint
+
+Before continuing, confirm that:
+
+- your notebook tab shows **`[DX]`**;
+- your code and outputs are visible;
+- you have saved the notebook; and
+- you understand that the notebook is persistent but the current R session is temporary.
+
+::: {.callout-success title="Ready"}
+Your work is saved.
+
+Next, you will safely end the temporary JupyterLab computing environment.
+:::
+
+[Next: 07 End your JupyterLab session →](07-end-your-jupyterlab-session.qmd){.btn .btn-primary}

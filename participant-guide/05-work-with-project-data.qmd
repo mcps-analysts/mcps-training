@@ -1,0 +1,203 @@
+---
+title: "Work with project data"
+---
+
+You now have a working **`[DX]` notebook** running with R.
+
+In this section, you will use R to read a small synthetic dataset stored in your DNAnexus project, inspect it, create a simple summary table, and produce a figure.
+
+All of the code needed for these exercises is already included in your `getting-started.ipynb` notebook.
+
+::: {.callout-important title="This tutorial uses synthetic data"}
+The file used on this page contains **synthetic training data only**. It does not contain information from MCPS participants.
+
+If you are completing this tutorial from a real MCPS research project, you do **not** need to access the real research data.
+:::
+
+## 1. Find the training data
+
+The shared training dataset is stored in:
+
+```text
+mcps-dnanexus-onboarding/
+└── data/
+    └── example_data.csv
+```
+
+This file is stored persistently in your DNAnexus project.
+
+When R is running inside JupyterLab, project files are available under:
+
+```text
+/mnt/project/
+```
+
+So the full path used by R is:
+
+```text
+/mnt/project/mcps-dnanexus-onboarding/data/example_data.csv
+```
+
+::: {.callout-note title="Remember `/mnt/project/`"}
+For this tutorial, you can think of `/mnt/project/` as meaning **"files stored in my current DNAnexus project".**
+
+The paths you need are already provided in the notebook. You do not need to memorise or type them yourself.
+:::
+
+
+::: {.callout-note title="For larger or more complex analyses"}
+Reading directly from `/mnt/project/` works well when you need to **read a file once**, as we do in this tutorial.
+
+For larger or more complex analyses — particularly when the same files need to be accessed repeatedly — it may be more efficient to first make a **temporary copy of the required files in the JupyterLab computing environment** and work from that copy.
+
+We will not need to do this in this tutorial. The important point for now is that `/mnt/project/` gives R direct, read-only access to files stored in your DNAnexus project.
+:::
+
+## 2. Read the data into R
+
+In `getting-started.ipynb`, find the section **2. Read the training data** and run the supplied code:
+
+```r
+dat <- read.csv(
+  "/mnt/project/mcps-dnanexus-onboarding/data/example_data.csv"
+)
+
+head(dat)
+```
+
+The first command reads the persistent CSV file into R and creates an object called `dat`.
+
+The second command displays the first few rows.
+
+You should see variables including `id`, `age`, `sex`, `height_cm`, `weight_kg`, and `systolic_bp`.
+
+The identifiers begin with `TRAINING` to make it clear that these are not real MCPS participant identifiers.
+
+## 3. Project file versus R object
+
+There are now two related but different things:
+
+| Item | Where it is | Persistent? |
+|---|---|---|
+| `example_data.csv` | DNAnexus project | **Yes** |
+| `dat` | Current R session | **No** |
+
+The original CSV remains stored in the project.
+
+`dat` is an R object created in the temporary computing environment so that you can analyse the data.
+
+::: {.callout-tip title="The code connects the two"}
+Your notebook contains the instruction needed to recreate `dat`:
+
+```r
+dat <- read.csv(
+  "/mnt/project/mcps-dnanexus-onboarding/data/example_data.csv"
+)
+```
+
+If you start a new R session later, you can simply run this code again.
+:::
+
+## 4. Inspect the data
+
+Find the section **3. Inspect the data**.
+
+First run:
+
+```r
+dim(dat)
+```
+
+This reports the number of rows and columns in the dataset.
+
+Then run:
+
+```r
+summary(dat)
+```
+
+This produces a basic summary of each variable.
+
+The purpose here is not to learn these R functions in detail. It is simply to confirm that R can work normally with data stored in your DNAnexus project.
+
+## 5. Create a summary table
+
+Find **4. Create a simple summary table** and run:
+
+```r
+aggregate(age ~ sex, data = dat, FUN = mean)
+```
+
+This calculates the mean age for each value of `sex`.
+
+The resulting table appears directly below the code cell in your notebook.
+
+::: {.callout-note title="Notebook outputs can be preserved"}
+Outputs displayed in your `[DX]` notebook — including tables, printed results, and model summaries — can be saved with the notebook.
+
+This makes the notebook a useful record of both your code and the results it produced.
+:::
+
+## 6. Create a figure
+
+Find **5. Create a figure** and run the supplied code:
+
+```r
+plot(
+  dat$age,
+  dat$systolic_bp,
+  xlab = "Age (years)",
+  ylab = "Systolic blood pressure",
+  main = "Synthetic training data"
+)
+```
+
+A scatter plot should appear directly below the code cell.
+
+Again, the purpose is not the analysis itself. We are checking that your JupyterLab environment can:
+
+1. access data stored in DNAnexus;
+2. analyse the data using R; and
+3. display the resulting output inside your persistent notebook.
+
+## 7. Save your progress
+
+Save your `[DX]` notebook now.
+
+At this point it should contain:
+
+- the supplied R code;
+- the first rows of the synthetic dataset;
+- the output from `dim()` and `summary()`;
+- your summary table; and
+- your figure.
+
+We will look more closely at what is preserved when you save a `[DX]` notebook on the next page.
+
+::: {.callout-caution title="Can't find a recently added project file?"}
+The files available to R under `/mnt/project/` reflect the project files available when your JupyterLab environment was started.
+
+If files are added to or reorganised in the DNAnexus project **after JupyterLab has started**, they may appear in the DNAnexus project browser but may not yet be available to R under `/mnt/project/`.
+
+Restarting JupyterLab refreshes the project files available to the environment. Because restarting takes time, it is best to make sure the files you need are in the project **before starting JupyterLab**.
+:::
+
+## Checkpoint
+
+Before continuing, confirm that:
+
+- `example_data.csv` was read successfully from `/mnt/project/`;
+- the object `dat` exists in your current R session;
+- you can see the first rows of the dataset;
+- the summary commands ran successfully;
+- the summary table is visible;
+- the figure is visible; and
+- you saved your `[DX]` notebook.
+
+::: {.callout-success title="Ready"}
+You have now completed a simple R analysis using data stored in your DNAnexus project.
+
+Next, we will look more closely at **what is saved when you save your `[DX]` notebook**.
+:::
+
+[Next: 06 Save Your Work →](06-save-your-work.qmd){.btn .btn-primary}
