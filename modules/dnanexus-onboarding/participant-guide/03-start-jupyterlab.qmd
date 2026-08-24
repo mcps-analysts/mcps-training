@@ -19,7 +19,7 @@ From the DNAnexus project interface, select:
 
 Then select **JupyterLab** from the menu.
 
-![Open JupyterLab from the Tools menu.](../assets/images/jupyterlab/01-tools-jupyterlab.png){fig-alt="DNAnexus Tools menu with JupyterLab selected"}
+![Open JupyterLab from the Tools menu.](../../../assets/images/jupyterlab/01-tools-jupyterlab.png){fig-alt="DNAnexus Tools menu with JupyterLab selected"}
 
 ::: {.callout-note title="Use this route"}
 This tutorial uses the dedicated **Tools → JupyterLab** route.
@@ -69,7 +69,7 @@ For this tutorial, use the following settings:
 | **Duration** | **1 hour** is sufficient for this tutorial |
 | **Feature** | **`PYTHON_R`** |
 
-![Recommended JupyterLab settings for the tutorial.](../assets/images/jupyterlab/02-new-jupyterlab-settings.png){fig-alt="DNAnexus New JupyterLab window showing Single Node, mem1_ssd1_v2_x4, a one-session duration, and PYTHON_R"}
+![Recommended JupyterLab settings for the tutorial.](../../../assets/images/jupyterlab/02-new-jupyterlab-settings.png){fig-alt="DNAnexus New JupyterLab window showing Single Node, mem1_ssd1_v2_x4, a one-session duration, and PYTHON_R"}
 
 ### Why these settings?
 
@@ -114,7 +114,7 @@ DNAnexus will begin creating your temporary JupyterLab environment.
 
 Your environment may initially show a status such as **In Queue** or **Initializing**.
 
-![JupyterLab environment initializing.](../assets/images/jupyterlab/03-jupyterlab-initializing.png){fig-alt="DNAnexus JupyterLab page showing a new environment with status Initializing"}
+![JupyterLab environment initializing.](../../../assets/images/jupyterlab/03-jupyterlab-initializing.png){fig-alt="DNAnexus JupyterLab page showing a new environment with status Initializing"}
 
 ### Wait for the environment to become ready
 
@@ -130,7 +130,7 @@ When the environment is ready, the **Open** button will appear.
 
 Select **Open**.
 
-![JupyterLab environment ready to open.](../assets/images/jupyterlab/04-jupyterlab-ready.png){fig-alt="DNAnexus JupyterLab page showing a Ready environment with an Open button"}
+![JupyterLab environment ready to open.](../../../assets/images/jupyterlab/04-jupyterlab-ready.png){fig-alt="DNAnexus JupyterLab page showing a Ready environment with an Open button"}
 
 JupyterLab will open in your browser.
 

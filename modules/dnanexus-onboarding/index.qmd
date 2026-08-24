@@ -1,0 +1,45 @@
+---
+title: "Getting Started with R and JupyterLab on DNAnexus"
+---
+
+This module introduces the standard workflow used for R-based analysis on MCPS DNAnexus.
+
+It is designed for MCPS researchers, workshop participants, and collaborators who are new to DNAnexus and JupyterLab.
+
+If you already have experience working with R and JupyterLab on DNAnexus, you can proceed directly to other MCPS training modules.
+
+## What you will learn
+
+By the end of this module, you will be able to:
+
+- navigate an MCPS DNAnexus project;
+- start an R-based JupyterLab environment;
+- work with a persistent `[DX]` notebook;
+- access project data from R;
+- save your work and outputs; and
+- safely end and resume your work.
+
+## Contents
+
+### Getting started
+1. [Before you begin](participant-guide/01-before-you-begin.qmd)
+2. [DNAnexus basics](participant-guide/02-dnanexus-basics.qmd)
+3. [Start JupyterLab](participant-guide/03-start-jupyterlab.qmd)
+
+### Working in DNAnexus
+4. [Open your `[DX]` notebook](participant-guide/04-open-dx-notebook.qmd)
+5. [Work with project data](participant-guide/05-work-with-project-data.qmd)
+6. [Save your work](participant-guide/06-save-your-work.qmd)
+7. [End your session](participant-guide/07-end-your-jupyterlab-session.qmd)
+8. [Return and continue](participant-guide/08-return-and-continue.qmd)
+
+### Guidance and reference
+9. [Data safety and downloading](participant-guide/09-data-safety-and-downloading.qmd)
+10. [Quick reference and troubleshooting](participant-guide/10-quick-reference-and-troubleshooting.qmd)
+
+### Advanced
+11. [Save standalone outputs](participant-guide/11-advanced-save-standalone-outputs.qmd)
+
+## Start the module
+
+[Start with "Before you begin" →](participant-guide/01-before-you-begin.qmd){.btn .btn-primary}

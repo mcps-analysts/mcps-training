@@ -14,7 +14,7 @@ The Launcher provides several ways to start notebooks, consoles and other tools.
 
 On the left-hand side of the screen are two different ways to browse files.
 
-![The JupyterLab Launcher with the temporary file browser open on the left.](../assets/images/jupyterlab/05-jupyterlab-temporary-files.png){fig-alt="JupyterLab Launcher showing the standard file browser on the left and notebook options in the centre"}
+![The JupyterLab Launcher with the temporary file browser open on the left.](../../../assets/images/jupyterlab/05-jupyterlab-temporary-files.png){fig-alt="JupyterLab Launcher showing the standard file browser on the left and notebook options in the centre"}
 
 ::: {.callout-warning title="Do not click the R notebook tile"}
 The Launcher shows several notebook options, including **Python 3**, **Bash**, and **R**.
@@ -44,7 +44,7 @@ Select the vertical **DNAnexus** tab on the left.
 
 This opens the files and folders stored in your **DNAnexus project**.
 
-![The DNAnexus project browser open on the left side of JupyterLab.](../assets/images/jupyterlab/06-dnanexus-project-browser.png){fig-alt="JupyterLab Launcher with the DNAnexus project browser open on the left, showing project folders"}
+![The DNAnexus project browser open on the left side of JupyterLab.](../../../assets/images/jupyterlab/06-dnanexus-project-browser.png){fig-alt="JupyterLab Launcher with the DNAnexus project browser open on the left, showing project folders"}
 
 ::: {.callout-important title="Know which file browser you are using"}
 There are two file browsers on the left side of JupyterLab:

@@ -12,90 +12,36 @@ page-layout: full
 
 <div class="mcps-home-title">
 
-# Getting Started with R and JupyterLab on DNAnexus
+# MCPS Training Kit
 
 <p class="mcps-home-lead">
-A self-paced introduction to the DNAnexus workflow used for R-based analysis in MCPS.
+Training and practical resources for researchers, collaborators, and workshop participants using the Mexico City Prospective Study.
 </p>
 
 </div>
 
 </div>
 
-::: {.callout-note title="Who is this for?"}
-This tutorial is designed for **MCPS researchers, workshop participants, and collaborators who are new to DNAnexus**.
+## Training modules
 
-You might be:
+The MCPS Training & Resources site provides modular training materials that can be used for **self-paced learning or as part of an organised workshop**.
 
-- attending an **MCPS workshop** and using a workshop project; or
-- starting work in an **MCPS research project** that you have been given access to.
+### Getting Started with R and JupyterLab on DNAnexus
 
-The tutorial works for both situations.
+A beginner-friendly introduction to the standard workflow for R-based analysis on MCPS DNAnexus.
 
-You do **not** need previous experience with DNAnexus, JupyterLab, cloud computing, or the command line.
-:::
+If you are unfamiliar with DNAnexus or JupyterLab, we recommend completing this module before moving on to other training modules.
 
-## What you will learn
+[Explore Getting Started →](modules/dnanexus-onboarding/index.qmd){.btn .btn-primary}
 
-By the end of this tutorial, you will be able to:
+### Survival Analysis
 
-- find the DNAnexus project you have been given access to;
-- identify where to keep your own work;
-- start an R-based JupyterLab environment;
-- understand what is saved permanently and what is temporary;
-- open and use a persistent **`[DX]` DNAnexus Notebook**;
-- read training data stored in your project directly from R;
-- save your analysis and its outputs;
-- safely terminate your JupyterLab session; and
-- return later and continue your work.
+Practical training in survival analysis using R and MCPS-like data on DNAnexus.
 
-## The workflow
+*Coming soon.*
 
-The DNAnexus workflow is simple:
+## Data safety
 
-1. **Project** — Open the project you have been given access to.
-2. **Workspace** — Find the folder where you will keep your own work.
-3. **JupyterLab** — Start a temporary computing environment.
-4. **`[DX]` Notebook** — Open your persistent notebook.
-5. **R analysis** — Read data, analyse, and create outputs.
-6. **Save and terminate** — Save your work and stop your computing session.
+All users of MCPS data should be familiar with the principles for working safely with research data on DNAnexus.
 
-<div class="mcps-workflow-summary">
-
-**Project → Workspace → JupyterLab → `[DX]` notebook → R analysis → Save → Terminate**
-
-</div>
-
-::: {.callout-warning title="Data safety"}
-This tutorial uses **synthetic training data**.
-
-If you are completing the tutorial from a project containing real MCPS research data, **you do not need to use those data at any point in this tutorial**.
-
-Individual-level MCPS research data must remain within the approved DNAnexus environment.
-
-Only download outputs that have been explicitly identified as safe and appropriate to export.
-:::
-
-## How to use this tutorial
-
-Work through the sections in order.
-
-The tutorial explains **what to do and why**, while a small `getting-started.ipynb` notebook gives you a place to practise the workflow yourself.
-
-The shared files used for these exercises are kept in a folder called:
-
-```text
-mcps-dnanexus-onboarding/
-```
-
-We will show you where to find this folder and your own working area before you start JupyterLab.
-
-::: {.callout-tip title="You do not need to memorise the steps"}
-The **Quick reference** at the end of the tutorial provides a short version of the workflow that you can return to during future workshops or analyses.
-:::
-
-## Ready to begin?
-
-Start the tutorial with **Before you begin**.
-
-[Start the tutorial →](participant-guide/01-before-you-begin.qmd){.btn .btn-primary}
+[Read the Data Safety guidance →](modules/dnanexus-onboarding/participant-guide/09-data-safety-and-downloading.qmd){.btn .btn-outline-primary}

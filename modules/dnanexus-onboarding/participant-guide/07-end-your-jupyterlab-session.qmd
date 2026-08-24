@@ -29,7 +29,7 @@ From the menu at the top of JupyterLab, select:
 
 **DNAnexus → End Session**
 
-![End the JupyterLab session using DNAnexus → End Session.](../assets/images/jupyterlab/07-end-session.png){fig-alt="DNAnexus JupyterLab interface with the DNAnexus menu open and End Session selected"}
+![End the JupyterLab session using DNAnexus → End Session.](../../../assets/images/jupyterlab/07-end-session.png){fig-alt="DNAnexus JupyterLab interface with the DNAnexus menu open and End Session selected"}
 
 Follow any confirmation prompt that appears.
 

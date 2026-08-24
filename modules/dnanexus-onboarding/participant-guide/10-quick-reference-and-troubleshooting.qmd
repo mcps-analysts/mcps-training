@@ -212,6 +212,6 @@ You are ready to use the core MCPS DNAnexus workflow:
 **open your project → start JupyterLab → open your `[DX]` notebook → work in R → save → end the session.**
 :::
 
-[← Return to Home](../index.qmd){.btn .btn-outline-primary}
+[← Return to Home](../../../index.qmd){.btn .btn-outline-primary}
 
 [Optional: Advanced topics →](11-advanced-save-standalone-outputs.qmd){.btn .btn-primary}

@@ -3,49 +3,52 @@ project:
   output-dir: _site
   render:
     - index.qmd
-    - participant-guide/*.qmd
-
+    - modules/dnanexus-onboarding/index.qmd
+    - modules/dnanexus-onboarding/participant-guide/*.qmd
+    
 website:
-  title: "MCPS DNAnexus Training Kit"
+  title: "MCPS Training Kit"
   page-navigation: true
+  
+  sidebar:
+  - title: "Getting Started"
+    style: "docked"
+    contents:
+      - modules/dnanexus-onboarding/index.qmd
+      
+      - section: "Getting started"
+        contents:
+          - modules/dnanexus-onboarding/participant-guide/01-before-you-begin.qmd
+          - modules/dnanexus-onboarding/participant-guide/02-dnanexus-basics.qmd
+          - modules/dnanexus-onboarding/participant-guide/03-start-jupyterlab.qmd
+
+      - section: "Working in DNAnexus"
+        contents:
+          - modules/dnanexus-onboarding/participant-guide/04-open-dx-notebook.qmd
+          - modules/dnanexus-onboarding/participant-guide/05-work-with-project-data.qmd
+          - modules/dnanexus-onboarding/participant-guide/06-save-your-work.qmd
+          - modules/dnanexus-onboarding/participant-guide/07-end-your-jupyterlab-session.qmd
+          - modules/dnanexus-onboarding/participant-guide/08-return-and-continue.qmd
+
+      - section: "Guidance and reference"
+        contents:
+          - modules/dnanexus-onboarding/participant-guide/09-data-safety-and-downloading.qmd
+          - modules/dnanexus-onboarding/participant-guide/10-quick-reference-and-troubleshooting.qmd
+
+      - section: "Advanced"
+        contents:
+          - modules/dnanexus-onboarding/participant-guide/11-advanced-save-standalone-outputs.qmd
 
   navbar:
     left:
       - href: index.qmd
         text: Home
-
-      - text: Getting started
-        menu:
-          - href: participant-guide/01-before-you-begin.qmd
-            text: Before you begin
-          - href: participant-guide/02-dnanexus-basics.qmd
-            text: DNAnexus basics
-          - href: participant-guide/03-start-jupyterlab.qmd
-            text: Start JupyterLab
-
-      - text: Working in DNAnexus
-        menu:
-          - href: participant-guide/04-open-dx-notebook.qmd
-            text: Open your `[DX]` notebook
-          - href: participant-guide/05-work-with-project-data.qmd
-            text: Work with project data
-          - href: participant-guide/06-save-your-work.qmd
-            text: Save your work
-          - href: participant-guide/07-end-your-jupyterlab-session.qmd
-            text: End your session
-          - href: participant-guide/08-return-and-continue.qmd
-            text: Return and continue
-
-      - text: Data safety
-        href: participant-guide/09-data-safety-and-downloading.qmd
-
-      - text: Quick reference
-        href: participant-guide/10-quick-reference-and-troubleshooting.qmd
-
-      - text: Advanced
-        menu:
-          - href: participant-guide/11-advanced-save-standalone-outputs.qmd
-            text: Save standalone outputs
+  
+      - href: modules/dnanexus-onboarding/index.qmd
+        text: Getting Started
+  
+      - href: modules/dnanexus-onboarding/participant-guide/09-data-safety-and-downloading.qmd
+        text: Data Safety
 
     right:
       - icon: github
