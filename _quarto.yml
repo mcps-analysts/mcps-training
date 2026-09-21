@@ -52,7 +52,7 @@ website:
 
     right:
       - icon: github
-        href: https://github.com/
+        href: https://github.com/mcps-analysts/mcps-training
         aria-label: GitHub
 format:
   html:

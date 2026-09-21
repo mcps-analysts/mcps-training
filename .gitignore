@@ -9,3 +9,5 @@ _site/
 /.quarto/
 **/*.quarto_ipynb
 Thumbs.db
+
+site_libs/

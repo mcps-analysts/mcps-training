@@ -35,6 +35,12 @@ Follow any confirmation prompt that appears.
 
 This deliberately ends the DNAnexus JupyterLab computing environment.
 
+::: {.callout-note title="You may see a connection error"}
+After ending the session, JupyterLab may display a **Server Connection Error**. This is expected: the JupyterLab server has been stopped, so the browser can no longer connect to it.
+
+You can close the JupyterLab browser tab after the session has ended.
+:::
+
 ::: {.callout-warning title="Use DNAnexus → End Session"}
 For this tutorial, use **DNAnexus → End Session** to end your computing session.
 

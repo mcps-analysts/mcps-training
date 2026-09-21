@@ -4,15 +4,13 @@ title: "Find your files and open your `[DX]` notebook"
 
 JupyterLab is now running.
 
-Before opening your notebook, take a moment to understand the JupyterLab window. There are **two different places where you can see files**, and it is important to know the difference.
+Before opening your notebook, take a moment to understand the JupyterLab window. 
 
 ## 1. Meet the JupyterLab window
 
 When JupyterLab first opens, you will see the **Launcher**.
 
 The Launcher provides several ways to start notebooks, consoles and other tools. You do not need most of these options for this tutorial.
-
-On the left-hand side of the screen are two different ways to browse files.
 
 ![The JupyterLab Launcher with the temporary file browser open on the left.](../../../assets/images/jupyterlab/05-jupyterlab-temporary-files.png){fig-alt="JupyterLab Launcher showing the standard file browser on the left and notebook options in the centre"}
 
@@ -26,7 +24,21 @@ Even though you will be working in R, **do not click the R tile**.
 Instead, you will open the supplied `getting-started.ipynb` notebook from your workspace using the **DNAnexus project browser**.
 :::
 
-### The JupyterLab file browser
+### The file browsers
+
+On the left-hand side of the screen are **two different ways to browse files**, and it is important to know the difference.
+
+::: {.callout-important title="Know which file browser you are using"}
+JupyterLab gives you access to files in two different places:
+
+**Folder icon → temporary JupyterLab files**
+
+**DNAnexus tab → persistent files in the DNAnexus project**
+
+In this tutorial, you will use the **DNAnexus project browser** to find your workspace and open your supplied notebook.
+:::
+
+#### The JupyterLab file browser
 
 The **folder icon** on the left opens the standard JupyterLab file browser.
 
@@ -38,7 +50,7 @@ Files in this area belong to the temporary JupyterLab environment and should **n
 For this tutorial, keep anything you need to preserve in the DNAnexus project.
 :::
 
-### The DNAnexus project browser
+#### The DNAnexus project browser
 
 Select the vertical **DNAnexus** tab on the left.
 
